@@ -11,15 +11,13 @@ namespace SimpleService.API.Tests.UnitTests.CustomerTest
         private readonly Mock<ICustomerRepository> _repositoryMock;
         private readonly Mock<IMapper> _mapperMock;
 
-        public GetCustomerHandlerTest()
-        {
+        public GetCustomerHandlerTest() {
             _repositoryMock = new Mock<ICustomerRepository>();
             _mapperMock = new Mock<IMapper>();
         }
 
         [Fact]
-        public void CheckGetCustomerReturnsObject()
-        {
+        public void CheckGetCustomerReturnsObject() {
             int id = new Random().Next(0, 1000);
             var customer = new CustomerModel { Id = id };
             _repositoryMock.Setup(r => r.GetCustomerAsync(id)).Returns(Task.FromResult(customer));
@@ -38,8 +36,7 @@ namespace SimpleService.API.Tests.UnitTests.CustomerTest
         }
 
         [Fact]
-        public void CheckGetCustomerReturnsNull()
-        {
+        public void CheckGetCustomerReturnsNull() {
             int id = new Random().Next(0, 1000);
             _repositoryMock.Setup(r => r.GetCustomerAsync(It.IsAny<int>())).Returns(Task.FromResult<CustomerModel>(null));
             _mapperMock.Setup(m => m.Map<CustomerModelApi>(null)).Returns<CustomerModelApi>(null);

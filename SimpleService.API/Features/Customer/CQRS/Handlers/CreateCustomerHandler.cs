@@ -18,9 +18,7 @@ namespace SimpleService.API.Features.Customer.CQRS.Handlers
         }
 
         public async Task<CustomerModelApi> Handle(CreateCustomerCommand request, CancellationToken cancellationToken) {
-            
             var newCustomer = _mapper.Map<CustomerModel>(request.Model);
-
             newCustomer = await _customerRepository.CreateCustomerAsync(newCustomer);
 
             return _mapper.Map<CustomerModelApi>(newCustomer);

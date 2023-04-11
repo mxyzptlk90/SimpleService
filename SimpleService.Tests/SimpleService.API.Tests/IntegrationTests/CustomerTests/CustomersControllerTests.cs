@@ -10,8 +10,7 @@ namespace SimpleService.API.Tests.IntegrationTests.CustomerTests
         public CustomersControllerTests(TestWebApplicationFactory factory) : base(factory) { }
 
         [Fact]
-        public async Task PostCustomerTest_Created()
-        {
+        public async Task PostCustomerTest_Created() {
             var requestBody = new { Firstname = "Test", Surname = "Test" };
 
             var response = await _httpClient.PostAsJsonAsync(_customerEndpointUrl, requestBody);
@@ -26,8 +25,7 @@ namespace SimpleService.API.Tests.IntegrationTests.CustomerTests
         }
 
         [Fact]
-        public async Task GetCustomerTest_Found()
-        {
+        public async Task GetCustomerTest_Found() {
             var id = 2;
             var response = await _httpClient.GetAsync($"{_customerEndpointUrl}/{id}");
 
@@ -41,8 +39,7 @@ namespace SimpleService.API.Tests.IntegrationTests.CustomerTests
         }
 
         [Fact]
-        public async Task GetCustomerTest_NotFound()
-        {
+        public async Task GetCustomerTest_NotFound() {
             var id = int.MaxValue;
             var response = await _httpClient.GetAsync($"{_customerEndpointUrl}/{id}");
 
@@ -50,8 +47,7 @@ namespace SimpleService.API.Tests.IntegrationTests.CustomerTests
         }
 
         [Fact]
-        public async Task GetAllCustomersTest()
-        {
+        public async Task GetAllCustomersTest() {
             var response = await _httpClient.GetAsync(_customerEndpointUrl);
 
             Assert.Equal(System.Net.HttpStatusCode.OK, response.StatusCode);
@@ -63,8 +59,7 @@ namespace SimpleService.API.Tests.IntegrationTests.CustomerTests
         }
 
         [Fact]
-        public async Task DeleteCustomerTest_Ok()
-        {
+        public async Task DeleteCustomerTest_Ok() {
             var id = 3;
             var count = _factory.DataStorage.Count();
 
@@ -79,8 +74,7 @@ namespace SimpleService.API.Tests.IntegrationTests.CustomerTests
         }
 
         [Fact]
-        public async Task DeleteCustomerTest_NotFound()
-        {
+        public async Task DeleteCustomerTest_NotFound() {
             var id = int.MaxValue;
             var count = _factory.DataStorage.Count();
             Assert.False(_factory.DataStorage.ContainsKey(id));

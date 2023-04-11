@@ -11,15 +11,13 @@ namespace SimpleService.API.Tests.UnitTests.CustomerTest
         private readonly Mock<ICustomerRepository> _repositoryMock;
         private readonly Mock<IMapper> _mapperMock;
 
-        public CreateCustomerHandlerTests()
-        {
+        public CreateCustomerHandlerTests() {
             _repositoryMock = new Mock<ICustomerRepository>();
             _mapperMock = new Mock<IMapper>();
         }
 
         [Fact]
-        public void CheckCreateCustomerAsyncIsCalled()
-        {
+        public void CheckCreateCustomerAsyncIsCalled() {
             var customer = new CustomerModel { FirstName = "Test", LastName = "Test" };
             var customerRequest = new CreateCustomerRequest { FirstName = "Test", Surname = "Test" };
             _mapperMock.Setup(m => m.Map<CustomerModel>(customerRequest)).Returns(customer);

@@ -8,14 +8,12 @@ namespace SimpleService.API.Tests.UnitTests.CustomerTest
     {
         private readonly Mock<ICustomerRepository> _repositoryMock;
 
-        public DeleteCustomerHandlerTests()
-        {
+        public DeleteCustomerHandlerTests() {
             _repositoryMock = new Mock<ICustomerRepository>();
         }
 
         [Fact]
-        public void CheckDeleteCustomerMethodIsCalled()
-        {
+        public void CheckDeleteCustomerMethodIsCalled() {
             int id = new Random().Next(0, 1000);
             var deleteCustomerHandler = new DeleteCustomerHandler(_repositoryMock.Object);
 

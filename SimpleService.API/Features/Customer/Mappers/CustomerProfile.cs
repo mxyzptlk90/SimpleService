@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using SimpleService.API.Features.Customer.Models;
-using SimpleService.API.Features.Customer.Models.Responses;
 
 namespace SimpleService.API.Features.Customer.Mappers
 {

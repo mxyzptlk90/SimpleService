@@ -13,6 +13,7 @@ namespace SimpleService.API.Features.Customer.Controllers
     {
         private readonly IMediator _mediator;
         private readonly ILogger<CustomersController> _logger;
+
         public CustomersController(IMediator mediator, ILogger<CustomersController> logger) {
             _mediator = mediator;
             _logger = logger;

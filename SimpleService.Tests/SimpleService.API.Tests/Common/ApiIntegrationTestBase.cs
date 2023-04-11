@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-namespace SimpleService.API.Tests.Common
+﻿namespace SimpleService.API.Tests.Common
 {
     public class ApiIntegrationTestBase: IClassFixture<TestWebApplicationFactory>
     {

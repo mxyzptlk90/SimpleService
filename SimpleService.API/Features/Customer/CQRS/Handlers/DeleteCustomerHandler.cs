@@ -12,6 +12,7 @@ namespace SimpleService.API.Features.Customer.CQRS.Handlers
             _customerRepository = customerRepository;
         }
 
-        public async Task<bool> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken) => await _customerRepository.DeleteCustomerAsync(request.Id);
+        public async Task<bool> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken) 
+                                                                => await _customerRepository.DeleteCustomerAsync(request.Id);
     }
 }
